@@ -71,7 +71,7 @@ class ImageNet(object):
 
     def _get_data_with_url(self, url, invalid_urls=None):
         try:
-            with request.urlopen(url) as response:
+            with request.urlopen(url, timeout=5) as response:
                 if invalid_urls is not None:
                     for invalid_url in invalid_urls:
                         if response.geturl() == invalid_url:
